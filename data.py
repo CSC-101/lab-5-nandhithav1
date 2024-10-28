@@ -13,10 +13,19 @@ class Time:
         self.minute = minute
         self.second = second
 
+    def __eq__(self, other: Any) -> bool:
+        return (
+            isinstance(other, Time) and
+            self.hour == other.hour and
+            self.minute == other.minute and
+            self.second == other.second
+        )
 
     # Provide a developer-friendly string representation of the object.
     # input: Time for which a string representation is desired. 
     # output: string representation
+    def __repr__(self) -> str:
+        return f"Time({self.hour}, {self.minute}, {self.second})"
 
 
     # Compare the Time object with another value to determine equality.
